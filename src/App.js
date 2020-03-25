@@ -8,6 +8,12 @@ import MyButton from './component/MyButton/MyButton';
 
 function App() {
     const [ myCompteur, setMyCompteur ] = useState(0);
+    const [ myColor, setMyColor ] = useState([]);
+    const modifierCompteur = (delta) => setMyCompteur(delta + myCompteur);
+
+    const couleur = () => {
+        return '#' + ((Math.random() * 0xffffff) << 0).toString(16);
+    };
 
     const data = [
         {
@@ -49,9 +55,18 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <div>
-                <MyButton titre="Incrémenter compteur" myHandler={() => setMyCompteur(myCompteur + 1)} />
-                <div style={{ width: '200px', height: '200px', fontSize: 38 }}>{myCompteur}</div>
+
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <MyButton titre="Generer une div" myHandler={() => setMyColor([ ...myColor, couleur() ])} />
+                {myColor.map((item) => {
+                    return <div style={{ width: '200px', height: '200px', fontSize: 38, backgroundColor: item }} />;
+                })}
+            </div>
+
+            <div style={{ margin: '100px' }}>
+                <MyButton titre="Incrémenter compteur" myHandler={() => modifierCompteur(1)} />
+                <MyButton titre="Décrémenter compteur" myHandler={() => modifierCompteur(-1)} />
+                <div style={{ width: '100px', height: '100px', fontSize: 38, margin: '30px' }}>{myCompteur}</div>
             </div>
             <Content data={data} />
         </div>
