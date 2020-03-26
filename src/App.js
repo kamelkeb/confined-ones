@@ -10,7 +10,7 @@ import LoginForm from './component/LoginForm/LoginForm';
 function App() {
     const [ myCompteur, setMyCompteur ] = useState(0);
     const [ myColor, setMyColor ] = useState([]);
-    const [ formVisible, setformVisible ] = useState(false);
+    const [ formVisible, setFormVisible ] = useState(false);
 
     const modifierCompteur = (delta) => setMyCompteur(delta + myCompteur);
 
@@ -75,7 +75,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header />
+            <Header loginButtonOnClick={() => setFormVisible(!formVisible)} />
 
             {formVisible ? <LoginForm /> : null}
 
