@@ -11,6 +11,12 @@ const LoginForm = (props) => {
             <input type="text" name="nom" id="nom" value={username} onChange={(e) => setUsername(e.target.value)} />
             <br />
             <label>Bonjour {username}</label>
+            {username.split().map((c) => (
+                <div>
+                    <p>{c}</p>
+                    <br />
+                </div>
+            ))}
             <br />
             <label for="mdp">Entrez votre mot de passe s'il vous plaît</label>
             <br />
