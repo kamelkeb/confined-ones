@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from './Card.module.css';
+import { Link } from 'react-router-dom';
 
-const Card = ({ titre, contenu }) => {
+const Card = ({ titre, contenu, id, estSeule }) => {
     return (
-        <card className={styles.card}>
+        <div className={styles.card}>
             <div>{titre}</div>
             <br />
             <div>{contenu}</div>
-        </card>
+            <br />
+            <br />
+            <br />
+            {estSeule ? null : <Link to={`/contenu/${id}`}>Plus de détails</Link>}
+        </div>
     );
 };
 

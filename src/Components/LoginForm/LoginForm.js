@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import tyles from './LoginForm.module.css';
+import { Redirect, useHistory } from 'react-router-dom';
+import MyButton from '../MyButton/MyButton';
 
 const LoginForm = (props) => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
+    const history = useHistory();
     return (
         <form>
             <label for="nom">Entrez votre nom d'utilisateur s'il vous plaît</label>
@@ -30,6 +33,7 @@ const LoginForm = (props) => {
             />
             <br />
             <label>{password.length <= 5 ? 'Le mot de passe doit comporter plus de 5 caractère' : null}</label>
+            <MyButton titre="Connexion" myHandler={() => history.push('/')} />
         </form>
     );
 };

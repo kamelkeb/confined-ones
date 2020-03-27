@@ -1,5 +1,5 @@
 .header {
-    background-color: #282c34;
+    background-color: #d9dfeb;
 
     display: flex;
     flex-direction: row;
@@ -9,4 +9,5 @@
     color: white;
     text-align: center;
     margin-bottom: 40px;
+    height: 60px;
 }
