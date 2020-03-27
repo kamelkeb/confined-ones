@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './content.module.css';
-import Card from '../card/card';
+import styles from './Content.module.css';
+import Card from '../Card/Card';
 
 const Content = ({ data }) => {
     return (

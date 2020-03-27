@@ -1,19 +1,15 @@
 import React from 'react';
 import MyButton from '../MyButton/MyButton';
 import styles from './Header.module.css';
+import { NavLink } from 'react-router-dom';
 
-const Header = ({
-    loginButtonOnClick,
-    couleurButtonOnClick,
-    compteurButtonOnClick,
-    contentButtonOnClick,
-    homeButtonOnClick
-}) => {
+const Header = ({ compteurButtonOnClick, contentButtonOnClick, homeButtonOnClick }) => {
     return (
         <header className={styles.header}>
             <MyButton titre="Home" myHandler={homeButtonOnClick} />
-            <MyButton titre="Login" myHandler={loginButtonOnClick} />
-            <MyButton titre="Générateur de couleurs" myHandler={couleurButtonOnClick} />
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/colors">Générateur de couleurs</NavLink>
+
             <MyButton titre="Compteur" myHandler={compteurButtonOnClick} />
             <MyButton titre="Contenu mappé" myHandler={contentButtonOnClick} />
         </header>
