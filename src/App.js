@@ -8,7 +8,7 @@ import Compteur from './Components/Compteur/Compteur';
 import { data } from './Assets/mockData';
 import Englobant from './HOC/Englobant';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Card from './Components/Card/Card';
 
 function App() {
@@ -22,17 +22,20 @@ function App() {
                     <Route path="/login">
                         <LoginForm />
                     </Route>
-                    <Route path="/colors">
+                    <Route path="/colors" exact>
                         <ColorsGenerator />
                     </Route>
-                    <Route path="/compteur">
+                    <Route path="/compteur" exact>
                         <Compteur />
                     </Route>
                     <Route path="/contenu" exact>
                         <Content data={data} />
                     </Route>
-                    <Route path="/contenu/:idCard">
+                    <Route path="/contenu/:idCard" exact>
                         <Content data={data} />
+                    </Route>
+                    <Route path="*">
+                        <Redirect to="/login" />
                     </Route>
                 </Switch>
             </Englobant>

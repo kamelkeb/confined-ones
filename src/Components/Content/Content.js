@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const Content = ({ data }) => {
     const { idCard } = useParams();
+    console.log("Ceci est l'idCar: " + idCard);
 
     const cardFromIdCard = (idCard) => {
         const item = data.find((item) => item.idItem == idCard);
