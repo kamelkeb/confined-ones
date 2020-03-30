@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyButton from '../MyButton/MyButton';
 import { Redirect } from 'react-router-dom';
 
 const ColorsGenerator = (props) => {
     const [ myColor, setMyColor ] = useState([]);
+    useEffect(
+        () => {
+            document.title = myColor.length;
+        },
+        [ myColor ]
+    );
+
     const couleurRandom = () => {
         return '#' + ((Math.random() * 0xffffff) << 0).toString(16);
     };
