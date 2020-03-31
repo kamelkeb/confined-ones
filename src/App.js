@@ -15,14 +15,8 @@ function App() {
     const [ data, setData ] = useState([]);
 
     useEffect(async () => {
-        const result = await yelp.get('/search', {
-            params: {
-                limit: 50,
-                term: 'pizza',
-                location: 'paris'
-            }
-        });
-        setData(result);
+        const result = await yelp.get();
+        setData(result.data);
     }, []);
 
     console.log(data);

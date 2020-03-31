@@ -5,11 +5,10 @@ import { useParams } from 'react-router-dom';
 
 const Content = ({ data }) => {
     const { idCard } = useParams();
-    console.log("Ceci est l'idCar: " + idCard);
 
     const cardFromIdCard = (idCard) => {
-        const item = data.find((item) => item.idItem == idCard);
-        return <Card titre={item.titre} contenu={item.contenu} id={item.idItem} estSeule />;
+        const item = data.find((item) => item.id == idCard);
+        return <Card titre={item.id + ' ' + item.title} contenu={item.body} id={item.id} estSeule />;
     };
 
     return (
@@ -18,7 +17,7 @@ const Content = ({ data }) => {
                 cardFromIdCard(idCard)
             ) : (
                 data.map((item) => {
-                    return <Card titre={item.titre} contenu={item.contenu} id={item.idItem} />;
+                    return <Card titre={item.id + ' ' + item.title} contenu={item.body} id={item.id} />;
                 })
             )}
         </div>
