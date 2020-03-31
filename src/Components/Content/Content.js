@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Content.module.css';
 import Card from '../Card/Card';
 import { useParams } from 'react-router-dom';
+import PostForm from '../../Forms/PostForm';
 
 const Content = ({ data }) => {
     const { idCard } = useParams();
@@ -16,9 +17,12 @@ const Content = ({ data }) => {
             {idCard ? (
                 cardFromIdCard(idCard)
             ) : (
-                data.map((item) => {
-                    return <Card titre={item.id + ' ' + item.title} contenu={item.body} id={item.id} />;
-                })
+                <div>
+                    <PostForm />
+                    {data.map((item) => {
+                        return <Card titre={item.id + ' ' + item.title} contenu={item.body} id={item.id} />;
+                    })}
+                </div>
             )}
         </div>
     );
