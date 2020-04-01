@@ -14,16 +14,17 @@ import yelp from './api/yelp';
 function App() {
     const [ data, setData ] = useState([]);
 
-    const getPosts = async () => {
-        try {
-            const result = await yelp.get();
-            setData(result.data);
-        } catch (err) {
-            alert(err);
-        }
-    };
-
-    useEffect(getPosts(), []);
+    useEffect(() => {
+        const getPosts = async () => {
+            try {
+                const result = await yelp.get();
+                setData(result.data);
+            } catch (err) {
+                alert(err);
+            }
+        };
+        getPosts();
+    }, []);
 
     console.log(data);
 

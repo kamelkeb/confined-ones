@@ -15,15 +15,16 @@ const PostForm = (props) => {
         });
     };
 
-    const sendPost = async (post) => {
-        try {
-            await yelp.post(post);
-        } catch (err) {
-            alert(err);
-        }
-    };
-
-    useEffect(sendPost(post), [ post ]);
+    useEffect(
+        () => {
+            const sendPost = async (post) => {
+                await yelp.post('https://jsonplaceholder.typicode.com/posts', post);
+            };
+            sendPost(post);
+            console.log('post sent');
+        },
+        [ post ]
+    );
 
     return (
         <div>
